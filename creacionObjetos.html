@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CREACION OBJETOS EN JS</title>
+    <!-- <script src="creacionObjetos.js"></script> -->
+</head>
+<body>
+    <label>Nombre</label><input type="text" class="Nombre"> <br/>
+    <label>Apellido</label><input type="text" class="Apellido"> <br/>
+    <label>Telefono</label><input type="text" class="Telefono"> <br/>
+    <label>E-mail</label><input type="text" class="email"> <br/>
+    <button class="Agregar">Agregar</button><br><br>
+
+    <div class="listado">
+
+
+    </div>
+
+    <script>
+     window.onload= iniciar;
+
+     var personas= []; 
+
+         function iniciar(){
+           var btnAgregar = document.querySelector(".Agregar");
+           btnAgregar.addEventListener('click', clickBtnAgregar);
+         }
+         function clickBtnAgregar(){
+             var Nombre= document.querySelector(".Nombre").value;
+             var Apellido= document.querySelector(".Apellido").value
+             var Telefono= document.querySelector(".Telefono").value;
+             var Email= document.querySelector(".email").value;
+            
+             var persona = {
+                 'Nombre': Nombre,
+                 'Apellido': Apellido,
+                 'Telefono': Telefono,
+                 'Email': Email
+             }
+             personas.push(persona);
+             mostrarPersonas(); 
+         }
+     function mostrarPersonas() {
+         var listado = document.querySelector(".listado"); 
+         var html = "";
+         for (var persona of personas){
+         html += persona.Nombre + ' ' + persona.Apellido + ' ' +persona.Telefono+ ' ' +persona.Email+ "<br>";
+         }
+         listado.innerHTML= html; 
+     }
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <b>Nombre post: </b> <span id="txtNombrePost"></span>
+
+
+    <b>Esta completo? </b> <span id="txtCompleto"></span>
+    <script>
+        function cargarJson() {
+            // fetch('https://jsonplaceholder.typicode.com/todos/1')
+            //     .then(response => response.json())
+            //     .then(jsonCargado);
+            let promesa = new Promise(resolver =>  {
+                setTimeout(() => {
+
+                    let json = {
+                        "userId": 1,
+                        "id": 1,
+                        "title": "delectus aut autem",
+                        "completed": false
+                    }
+                    resolver(json);
+
+                }, 5000);
+
+            });
+            promesa.then(json => {
+                jsonCargado(json);
+
+            });
+        }
+
+
+        function jsonCargado(json) {
+            let spanNombrePost = document.getElementById("txtNombrePost");
+            spanNombrePost.innerText = json.title;
+            json.title
+            console.log(json);
+
+
+
+            let spanCompleto = document.getElementById("txtCompleto");
+            if (json.completed) {
+                spanCompleto.innerText = "Esta completo";
+
+            } else {
+                spanCompleto.innerText = "Esta incompleto";
+
+            }
+
+        }
+
+        cargarJson();
+    </script>
+</body>
+
+</html>

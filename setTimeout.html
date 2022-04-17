@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer</title>
+
+</head>
+<body>
+    <script>
+ setTimeout(mostrarMensaje, 2000);
+
+ function mostrarMensaje(){
+     alert("Tiempo completo")
+ }
+//  ---------------------------/-----------------------------------
+// de una forma mas simple podemos igualar la variable a una funcion de esta forma
+var mostrarMensaje = function(){
+    alert("tiempo completado");
+}
+// el setTimeout se utiliza para realziar una accion despues de un tiempo determinado
+setTimeout(mostrarMensaje, 2000); 
+
+// para realizar una accion cada cierto tiempo se utiliza el setInterval
+
+var mostrarMensaje = function(){
+    alert("tiempo completado");
+}
+var timer = setInterval(mostrarMensaje, 3000);
+
+// para matar el timer se usa el clearInterval()
+clearInterval(timer); 
+
+    </script>
+</body>
+</html>
